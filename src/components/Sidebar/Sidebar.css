@@ -1,0 +1,204 @@
+.sidebar {
+    background: var(--color-cardBg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid var(--color-border);
+    width: 280px;
+    min-width: 280px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 80px 16px 20px 16px;
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 20px var(--color-shadow);
+    z-index: 999;
+}
+.shortcut-links {
+    margin-bottom: 24px;
+}
+
+.shortcut-links img {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+}
+.side-links {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.side-links::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-gradient);
+    opacity: 0.1;
+    transition: left 0.3s ease;
+}
+
+.side-links:hover {
+    background: var(--color-hover);
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.side-links:hover::before {
+    left: 0;
+}
+
+.side-links:hover img {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+.side-links p {
+    margin: 0;
+    font-weight: 500;
+}
+.sidebar hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-border) 50%, transparent 100%);
+    margin: 20px 0;
+    opacity: 0.6;
+}
+.subscribed-list {
+    margin-top: 24px;
+}
+
+.subscribed-list h3 {
+    font-size: 14px;
+    margin: 0 16px 16px 16px;
+    color: var(--color-textSecondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.side-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.side-link img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-border);
+}
+
+.side-link:hover {
+    background: var(--color-hover);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.side-link:hover img {
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+}
+
+.side-link p {
+    margin: 0;
+}
+.small-sidebar {
+    width: 80px;
+    min-width: 80px;
+}
+
+.small-sidebar p {
+    display: none;
+}
+
+.small-sidebar h3 {
+    display: none;
+}
+
+.small-sidebar hr {
+    margin: 16px auto;
+}
+
+.small-sidebar .side-links {
+    justify-content: center;
+    padding: 16px 8px;
+}
+
+.small-sidebar .side-links img {
+    margin-right: 0;
+}
+
+.small-sidebar .side-link {
+    justify-content: center;
+    padding: 12px 8px;
+}
+
+.small-sidebar .side-link img {
+    margin-right: 0;
+    width: 28px;
+    height: 28px;
+}
+
+.small-sidebar .subscribed-list {
+    display: none;
+}
+
+/* Scrollbar styling for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+        z-index: 1001;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .small-sidebar {
+        display: none;
+    }
+}

@@ -1,0 +1,132 @@
+:root {
+  /* Default theme variables - will be overridden by ThemeProvider */
+  --color-primary: #0f172a;
+  --color-secondary: #1e293b;
+  --color-tertiary: #334155;
+  --color-text: #f1f5f9;
+  --color-textSecondary: #94a3b8;
+  --color-accent: #3b82f6;
+  --color-accentHover: #2563eb;
+  --color-border: #334155;
+  --color-hover: #1e293b;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --color-cardBg: #1e293b;
+  --color-glass: rgba(30, 41, 59, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.app {
+  background-color: var(--color-primary);
+  min-height: 100vh;
+  color: var(--color-text);
+}
+
+/* Utility classes */
+.flex-div {
+  display: flex;
+  align-items: center;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, select, textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global focus styles */
+*:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app {
+    font-size: 16px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

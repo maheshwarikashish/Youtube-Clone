@@ -1,0 +1,118 @@
+nav {
+    padding: 12px 3%;
+    justify-content: space-between;
+    background: var(--color-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px var(--color-shadow);
+}
+.nav-left .menu-icon {
+    width: 24px;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    filter: brightness(1);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.nav-left .menu-icon:hover {
+    background: var(--color-hover);
+    transform: scale(1.1);
+}
+.nav-left .logo {
+    width: 140px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-left .logo:hover {
+    transform: scale(1.05);
+}
+.nav-middle {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 40px;
+}
+
+.nav-middle .search-box {
+    display: none; /* Hide default search, using AdvancedSearch component */
+}
+.nav-middle .search-box input{
+    width: 400px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-text);
+}
+.nav-middle .search-box input::placeholder{
+    color: var(--color-textSecondary);
+}
+    width: 15px;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-right img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    filter: brightness(0.9);
+}
+
+.nav-right img:hover {
+    background: var(--color-hover);
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+.nav-right .user-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.nav-right .user-icon:hover {
+    transform: scale(1.1);
+    border-color: var(--color-accentHover);
+    box-shadow: 0 4px 16px var(--color-shadow);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 4%;
+    }
+    
+    .nav-middle {
+        margin: 0 20px;
+    }
+    
+    .nav-right {
+        gap: 4px;
+    }
+    
+    .nav-right img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .nav-right .user-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
